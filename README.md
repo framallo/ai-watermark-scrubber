@@ -167,8 +167,9 @@ this EPUB before publishing". The installer links it into `~/.claude/skills/`
 
 ## Use as a build hook
 
-`scrub` is invoked by [bookmill](../libs/bookmill) via a generic post-build
-hook. In a repo's `bookmill.toml`:
+`scrub` plugs into any pipeline that can run a command per output file. For
+example, the `bookmill` publishing tool invokes it via a generic post-build hook
+so every built EPUB is cleaned automatically — in a repo's `bookmill.toml`:
 
 ```toml
 [[hooks.post_build]]
@@ -178,22 +179,8 @@ formats = ["epub"]
 required = true
 ```
 
-Install it so the pipeline can find it on `PATH` (`./install.sh` or `cargo
-install --path .`).
+Install `scrub` on `PATH` first (any method above) so the pipeline can find it.
 
-`scrub` is invoked by [bookmill](../libs/bookmill) via a generic post-build
-hook. In a repo's `bookmill.toml`:
+## License
 
-```toml
-[[hooks.post_build]]
-command = "scrub"
-args = ["clean", "--in-place", "{file}"]
-formats = ["epub"]
-required = true
-```
-
-Install it so the pipeline can find it on `PATH`:
-
-```sh
-cargo install --path .
-```
+MIT.
