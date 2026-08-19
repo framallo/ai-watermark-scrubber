@@ -18,7 +18,13 @@ The binary and the library both keep the short name **`scrub`** — you run
 
 ## Quick install
 
-Prebuilt binary (macOS / Linux, no Rust needed):
+Homebrew (macOS / Linux):
+
+```sh
+brew install framallo/scrub/scrub
+```
+
+Prebuilt binary via `curl | sh` (macOS / Linux, no Rust needed):
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/framallo/ai-watermark-scrubber/main/scripts/install.sh | sh
@@ -30,8 +36,8 @@ Or with Cargo (any platform with a Rust toolchain):
 cargo install --git https://github.com/framallo/ai-watermark-scrubber
 ```
 
-Either way you get the `scrub` command. See [Install](#install) for the skill
-and agent integration.
+Any of these gives you the `scrub` command. See [Install](#install) for the
+skill and agent integration.
 
 ## What it does
 
@@ -122,8 +128,18 @@ cargo test
 
 ## Install
 
-One command builds the `scrub` binary and registers the agent skill wherever a
-supported agent is set up on the machine (Claude Code, Grok, …):
+Prebuilt binary, no toolchain needed:
+
+```sh
+brew install framallo/scrub/scrub                                                    # Homebrew (macOS/Linux)
+curl -fsSL https://raw.githubusercontent.com/framallo/ai-watermark-scrubber/main/scripts/install.sh | sh   # curl | sh
+```
+
+The Homebrew formula lives in the [`framallo/homebrew-scrub`](https://github.com/framallo/homebrew-scrub)
+tap; `brew upgrade scrub` picks up new releases.
+
+To also register the agent skill (Claude Code, Grok, …) — builds from source and
+symlinks the skill:
 
 ```sh
 ./install.sh                 # binary + skill (auto-detects agent skill dirs)
