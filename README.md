@@ -16,6 +16,23 @@ The binary and the library both keep the short name **`scrub`** — you run
 > provenance tags in EPUB metadata. Statistical token-sampling watermarks are
 > out of scope (see below).
 
+## Quick install
+
+Prebuilt binary (macOS / Linux, no Rust needed):
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/framallo/ai-watermark-scrubber/main/scripts/install.sh | sh
+```
+
+Or with Cargo (any platform with a Rust toolchain):
+
+```sh
+cargo install --git https://github.com/framallo/ai-watermark-scrubber
+```
+
+Either way you get the `scrub` command. See [Install](#install) for the skill
+and agent integration.
+
 ## What it does
 
 - **Text (Layer A):** strips zero-width and format controls (ZWSP, ZWNJ/ZWJ,
