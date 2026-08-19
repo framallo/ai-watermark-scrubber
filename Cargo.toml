@@ -1,0 +1,28 @@
+[package]
+name = "scrub"
+version = "0.1.0"
+edition = "2021"
+description = "Detect and clean invisible-Unicode carriers and stray provenance metadata from text and EPUB files"
+license = "MIT"
+
+[[bin]]
+name = "scrub"
+path = "src/main.rs"
+
+[lib]
+name = "scrub"
+path = "src/lib.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+unicode-general-category = "1"
+unicode-normalization = "0.1"
+# EPUB is a ZIP container; match bookmill's zip major so behavior is consistent.
+zip = { version = "2", default-features = false, features = ["deflate"] }
+walkdir = "2"
+
+[dev-dependencies]
+tempfile = "3"
