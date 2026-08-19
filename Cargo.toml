@@ -1,10 +1,16 @@
 [package]
-name = "scrub"
+name = "ai-watermark-scrubber"
 version = "0.1.0"
 edition = "2021"
-description = "Detect and clean invisible-Unicode carriers and stray provenance metadata from text and EPUB files"
+description = "Detect and remove multi-vendor AI text watermarks — invisible-Unicode carriers and stray provenance metadata — from text and EPUB files. Usable as a CLI (`scrub`) and as a Rust library (`scrub`)."
 license = "MIT"
+repository = "https://github.com/framallo/ai-watermark-scrubber"
+keywords = ["ai", "watermark", "unicode", "epub", "sanitize"]
+categories = ["command-line-utilities", "text-processing"]
 
+# The binary and library keep the short, generic name `scrub` on purpose: build
+# pipelines invoke `scrub` and Rust consumers write `use scrub::…`, while the
+# crate/repo name advertises what it does.
 [[bin]]
 name = "scrub"
 path = "src/main.rs"
